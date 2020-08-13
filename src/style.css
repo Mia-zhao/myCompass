@@ -1,0 +1,134 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+:root {
+  --font-color: #263238;
+  --border-color: #ECEFF1;
+  --entry-bg-color: #FDFDFD;
+}
+
+body {
+  background-color: #F6F6F6;
+}
+
+.searchEngineList {
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.searchEngineList ul {
+  display: flex;
+  flex-direction: row;
+}
+
+.searchEngineList ul li {
+  font-size: 22px;
+  color: var(--font-color);
+  margin-right: 48px;
+  margin-bottom: 10px;
+}
+
+.searchEngineHighlighted {
+  font-weight: bold;
+}
+
+.searchForm {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchForm input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid var(--border-color);
+  background-color: var(--entry-bg-color);
+  border-radius: 0;
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+.searchForm button {
+  white-space: nowrap;
+  padding: 0 28px;
+  font-size: 22px;
+  color: #FEFEFE;
+  border: none;
+  background-color: #37474F;
+}
+
+section {
+  margin: 20px 20px;
+}
+
+section h3 {
+  font-size: 24px;
+  color: var(--font-color);
+}
+
+.myBookmarks ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.siteDiv {
+  margin-top: 15px;
+  width: 156px;
+  border: 1px solid var(--border-color);
+  background-color: var(--entry-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 0;
+  position: relative;
+}
+
+.myBookmarks .iconText {
+  color: var(--font-color);
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myBookmarks .siteUrl {
+  color: var(--font-color);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.myBookmarks .closeIcon {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  display: none;
+}
+
+.myBookmarks .closeIcon svg {
+  width: 30px;
+}
+
+.siteDiv:hover .closeIcon {
+  display: block;
+}
+
+.addIconImg {
+  width: 50px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}

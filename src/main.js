@@ -37,6 +37,15 @@ $(".addIcon").on("click", (e) => {
   renderMyBookmarks();
 });
 
+$(document).on("keypress", (e)=>{
+  const { key } = e;
+  for (let i = 0; i < defaultBookmarks.length; ++i) {
+    if (defaultBookmarks[i].icon.toLowerCase() === key) {
+      window.open(defaultBookmarks[i].url, "_self");
+    }
+  }
+});
+
 window.onbeforeunload = () => {
   localStorage.setItem(searchEngineSelected, $(`.${searchEngineSelected}`).text());
 }
@@ -77,8 +86,8 @@ function renderBookmarks() {
     bookmarkList.forEach((dataItem)=>{ 
       const $li = $(`<li class="bookmarks-${index}">
       <div class="bookmarkEntry">
-        <img src="/resources/${dataItem.logo}}" alt="icon">
-        <div>${dataItem.name}</div>
+        <div class="icon-wrapper"><img src="/resources/${dataItem.logo}" alt="icon"></div>
+        <div class="icon-text">${dataItem.name}</div>
       </div></li>`);
       $li.on("click", ()=>{
         window.open(dataItem.url, "_self");

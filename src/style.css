@@ -28,6 +28,10 @@ body {
   margin-left: 20px;
 }
 
+.searchEngineList:hover {
+  cursor: default;
+}
+
 .searchEngineList ul {
   display: flex;
   flex-direction: row;
@@ -85,6 +89,22 @@ section h3 {
   justify-content: space-between;
 }
 
+@media (min-width: 500px) {
+  .myBookmarks ul {
+    margin-right: -35px;
+    justify-content: flex-start;
+  }
+
+  .siteDiv {
+    margin-top: 15px;
+    margin-right: 35px;
+  }
+
+  section {
+    margin-top: 40px;
+  }
+}
+
 .siteDiv {
   margin-top: 10px;
   width: 156px;
@@ -125,6 +145,11 @@ section h3 {
 
 .siteDiv:hover .closeIcon {
   display: block;
+  cursor: default;
+}
+
+li div:hover {
+  cursor: pointer;
 }
 
 .addIconImg {
@@ -139,6 +164,18 @@ section h3 {
   justify-content: space-between;
 }
 
+@media (min-width: 500px) {
+  .bookmarks ul {
+    margin-right: -35px;
+    justify-content: flex-start;
+  }
+
+  .bookmarkEntry {
+    margin-top: 15px;
+    margin-right: 35px;
+  }
+}
+
 .bookmarkEntry {
   margin-top: 10px;
   width: 156px;
@@ -150,21 +187,36 @@ section h3 {
   border: 1px solid var(--border-color);
 }
 
-.bookmarkEntry img {
+.icon-wrapper {
   display: flex;
   align-items: center;
-  max-width: 40px;
-  max-height: 40px;
+  object-fit: cover;
+  max-width: 16px;
+  max-height: 16px;
   width: auto;
   height: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
-.bookmarkEntry div {
+.icon-text {
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--font-color);
   width: 108px;
+}
+
+@media (min-width: 500px) {
+  .searchEngineList, .searchForm {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+main {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
 }

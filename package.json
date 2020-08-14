@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": "rm -rf dist/* && parcel build src/index.html --public-url ./ && cp -r src/resources/ dist/" 
+  },
+  "name": "myCompass",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Mia <miazhaouw@gmail.com>",
+  "license": "MIT"
+}

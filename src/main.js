@@ -86,7 +86,7 @@ function renderBookmarks() {
     bookmarkList.forEach((dataItem)=>{ 
       const $li = $(`<li class="bookmarks-${index}">
       <div class="bookmarkEntry">
-        <div class="icon-wrapper"><img src="/resources/${dataItem.logo}" alt="icon"></div>
+        <div class="icon-wrapper"><img src="resources/${dataItem.logo}" alt="icon"></div>
         <div class="icon-text">${dataItem.name}</div>
       </div></li>`);
       $li.on("click", ()=>{

@@ -71,7 +71,7 @@ body {
 }
 
 section {
-  margin: 20px 20px;
+  margin: 20px;
 }
 
 section h3 {
@@ -86,7 +86,7 @@ section h3 {
 }
 
 .siteDiv {
-  margin-top: 15px;
+  margin-top: 10px;
   width: 156px;
   border: 1px solid var(--border-color);
   background-color: var(--entry-bg-color);
@@ -131,4 +131,40 @@ section h3 {
   width: 50px;
   padding-top: 9px;
   padding-bottom: 9px;
+}
+
+.bookmarks ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.bookmarkEntry {
+  margin-top: 10px;
+  width: 156px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: var(--entry-bg-color);
+  border: 1px solid var(--border-color);
+}
+
+.bookmarkEntry img {
+  display: flex;
+  align-items: center;
+  max-width: 40px;
+  max-height: 40px;
+  width: auto;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.bookmarkEntry div {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: var(--font-color);
+  width: 108px;
 }

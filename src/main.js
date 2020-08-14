@@ -5,13 +5,14 @@ const localStorageBookmarks = "compassMyBookmarks";
 const defaultBookmarks = JSON.parse(localStorage.getItem(localStorageBookmarks)) ||
 [
   {icon: 'B', url: 'https://www.behance.net/'},
-  {icon: 'D', url: 'https://developer.mozilla.org/en-US/docs/Learn'}
+  {icon: 'D', url: 'https://developer.mozilla.org/en-US/'}
 ];
 
 const $searchEngineList = $(searchEngineSelector).find("li");
 
 setSearchEngine(localStorage.getItem(searchEngineSelected) || "百度");
-renderBookmarks();
+renderMyBookmarks();
+renderBookmarks()
 
 $searchEngineList.on("click", (e)=>{
   
@@ -33,7 +34,7 @@ $(".addIcon").on("click", (e) => {
   
   localStorage.setItem(localStorageBookmarks, JSON.stringify(defaultBookmarks));
 
-  renderBookmarks();
+  renderMyBookmarks();
 });
 
 window.onbeforeunload = () => {
@@ -44,7 +45,7 @@ function trimUrl(url) {
   return url.replace(/^http(s)?:\/\/(www.)?/, "").replace(/\/.*/, "");
 }
 
-function renderBookmarks() {
+function renderMyBookmarks() {
   $(".myBookmarks ul").find("li:not(.addIcon)").remove();
   defaultBookmarks.forEach((item, index) => {
     const $li = $(`<li><div class="siteDiv">
@@ -56,16 +57,39 @@ function renderBookmarks() {
         </svg></div>
       </div></li>`).insertBefore($(".addIcon"));
     $li.on("click", ()=>{
-      window.open(item.url);
+      window.open(item.url, "_self");
     });
     $li.on("click", ".closeIcon", (e)=>{
       defaultBookmarks.splice(index, 1);
       localStorage.setItem(localStorageBookmarks, JSON.stringify(defaultBookmarks));
       e.stopPropagation();
-      renderBookmarks();
+      renderMyBookmarks();
     });
   });
 }
+
+function renderBookmarks() {
+  const bookmarkFile = require("./resources/sites.json");
+  $(".bookmarks").each((index, item)=>{
+    const $bookmarkHeader = $(item).find("h3");
+    const bookmarkList = bookmarkFile[$bookmarkHeader.text()];
+    let insertAfterElem = $bookmarkHeader;
+    bookmarkList.forEach((dataItem)=>{ 
+      const $li = $(`<li class="bookmarks-${index}">
+      <div class="bookmarkEntry">
+        <img src="/resources/${dataItem.logo}}" alt="icon">
+        <div>${dataItem.name}</div>
+      </div></li>`);
+      $li.on("click", ()=>{
+        window.open(dataItem.url, "_self");
+      });
+      $li.insertAfter(insertAfterElem);
+      insertAfterElem = $li;
+    });
+    $(`.bookmarks-${index}`).wrapAll("<ul></ul>");
+  });
+}
+
 
 function setSearchEngine(searchEngine) {
   const searchFormParams = {
